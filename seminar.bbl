@@ -23,6 +23,11 @@ Cha, S., Oh, H.: Concolic testing with adaptively changing search heuristics.
   Engineering Conference and Symposium on the Foundations of Software
   Engineering. pp. 235--245 (2019)
 
+\bibitem{chakrabarti2006software}
+Chakrabarti, A., Godefroid, P.: Software partitioning for effective automated
+  unit testing. In: Proceedings of the 6th ACM \& IEEE International conference
+  on Embedded software. pp. 262--271 (2006)
+
 \bibitem{godefroid2007compositional}
 Godefroid, P.: Compositional dynamic test generation. In: Proceedings of the
   34th annual ACM SIGPLAN-SIGACT symposium on Principles of programming

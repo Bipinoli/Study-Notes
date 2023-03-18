@@ -82,6 +82,72 @@ Concolic execution \cite{godefroid2005dart} is a software verification technique
 	\item Example of the use of this technique in finding bugs in configurable system eg result of SAGE, EXE, etc.
 \end{itemize}
 
+
+\section{Body}
+
+% ------------------------------
+\subsection{2007: Performing dynamic test generation compositionally}
+\cite[paper]{godefroid2007compositional}
+
+\subsubsection{Gist:}
+The general idea behind this new search algorithm is to perform dynamic  test generation compositionally, by adapting (dualizing) known techniques for interproce-dural static analysis to the context of automated dynamic test gener-ation.
+
+\subsubsection{Methodlogy:}
+new search algorithm called SMART which stands for duce a new algorithm, dubbed SMARTfor Systematic Modular Automated Random Testing, a more efficent search method then DART without compromising
+completeness. It tests functions in isolation, collects testing results as function summaries ex-pressed using preconditions on function inputs and postconditionson function outputs, and then re-use those summaries when testinghigher-level functions.
+
+A SMART search performs dynamic test generation composi-tionally,  using  function  summaries  as  defined  previously.  Thosesummaries  are  dynamically  computed  in  a  top-down  mannerthrough the call-flow graphGPofP. Starting from the top-levelfunction, one executes the program (initially on some random in-puts) until one  reaches  a first functionfwhose execution termi-nates on a return orhaltstatement. One then backtracks insidefas much as  possible  using DART, computing summaries  for thatfunction and each of those DART-triggered executions. When thissearch (backtracking)  infis over, one then resumes the originalexecution wherefwas called,  this time treatingfessentially asa black-box,  i.e., without analyzing it and re-using its previouslycomputed  summary  instead. 
+
+\subsubsection{Result:}
+SMART can perform dynamic test generation com-positionally without any reduction in program path coverage. Wealso show that, given a bound on the maximum number of feasiblepaths in individual program functions, the number of program exe-cutions explored by SMART is linear in that bound, while the num-ber of program executions explored by DART can be exponentialin that bound.
+SMART = scalable DART
+
+% ------------------------------
+
+\subsection{2006: Software Partitioning for Effective Automated Unit Testing}
+\cite{chakrabarti2006software}
+
+\subsubsection{Gist:}
+present an approach thatidentifies control and data inter-dependencies between soft-ware components using static program analysis, and dividesthe source code into units where highly-intertwined compo-nents are grouped together. Those units can then be testedin isolation using automated test generation techniques andtools,  such as dynamic software model checkers
+
+\subsubsection{Methodlogy:}
+group together functions or components that share interfaces of complexity higher than 
+a particular threshold. Complexity is determined by the popularity and sharing of code. The idea is that 
+if the function is very popular and is being called from a lot of places then it is likely that it is not closely liked to any component. 
+And, the sharing of code meaning if two functions share many of the same functions then it is likely that the higher level operation they perform is close to each other.
+
+\subsubsection{Configurability part:}
+evaluated the effectiveness by applying the algorithm to the open source implementation of oSIP protocol (http://www.gnu.org/software/osip/osip.html) which is a telephony protocol for call establishment. 
+
+
+\subsubsection{Result:}
+showing  that  auto-matic  software  partitioning  can  significantly  increase  testcoverage without generating too many false alarms causedby unrealistic inputs being injected at interfaces betweenunits
+
+% ------------------------------
+\subsection{2007: Hybrid concolic testing (**)}
+
+\subsubsection{Gist:}
+
+\subsubsection{Methodlogy:}
+
+\subsubsection{Configurability part:}
+
+\subsubsection{Result:}
+
+% ------------------------------
+\subsection{<<paper>>}
+
+\subsubsection{Gist:}
+
+\subsubsection{Methodlogy:}
+
+\subsubsection{Configurability part:}
+
+\subsubsection{Result:}
+
+
+
+% ------------------------------
 \section{Different catagorical bodies}
 \begin{itemize}
 	\item summerize, give an overview of the main points of each source and combine them into a coherent whole
