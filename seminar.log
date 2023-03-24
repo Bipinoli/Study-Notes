@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.13)  24 MAR 2023 13:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.13)  24 MAR 2023 13:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -369,36 +369,36 @@ a shorter form with \titlerunning prior to \maketitle
 
 
 {/Users/bipinoli/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (68.07068pt too wide) in paragraph at lines 124--125
+Overfull \hbox (68.07068pt too wide) in paragraph at lines 132--133
 \OT1/cmr/m/n/10 the open source im-ple-men-ta-tion of oSIP pro-to-col (http://www.gnu.org/software/osip/osip.html)
  []
 
 [3] [4]
-Overfull \hbox (8.41788pt too wide) in paragraph at lines 158--159
+Overfull \hbox (8.41788pt too wide) in paragraph at lines 166--167
  []\OT1/cmr/bx/n/10 Configurability part:[] \OT1/cmr/m/n/10 We have im-ple-mented these strate-gies in CREST, ouropen
  []
 
 [5] [6] [7] [8] [9]
-Overfull \hbox (6.20914pt too wide) in paragraph at lines 239--240
+Overfull \hbox (6.20914pt too wide) in paragraph at lines 247--248
 []\TS1/cmr/m/n/10 ˆ\OT1/cmr/m/n/10 Efficient repet-i-tive test-ing and con-crete environ-ment.The ef-fi-ciency ofQSYM-
  []
 
 [10]
-Overfull \hbox (27.9476pt too wide) in paragraph at lines 274--278
+Overfull \hbox (27.9476pt too wide) in paragraph at lines 282--286
  []\OT1/cmr/bx/n/10 Result:[] \OT1/cmr/m/n/10 In ex-per-i-ments with the CB-multios dataset for deep bug cases, Dr.PathFinder
  []
 
 
-Overfull \hbox (6.04366pt too wide) in paragraph at lines 274--278
+Overfull \hbox (6.04366pt too wide) in paragraph at lines 282--286
 \OT1/cmr/m/n/10 times fewer test cases and used at least 2bugs lo-cated in deep paths, Dr.PathFinder
  []
 
-
-Overfull \hbox (0.90508pt too wide) in paragraph at lines 293--295
+[11]
+Overfull \hbox (0.90508pt too wide) in paragraph at lines 301--303
 \OT1/cmr/m/n/10 see ralated work sec-tion of https://dl.acm.org/doi/pdf/10.1145/2635868.2635872
  []
 
-[11] (./seminar.bbl [12]
+(./seminar.bbl [12]
 Underfull \hbox (badness 1173) in paragraph at lines 56--60
 []\OT1/cmr/m/n/9 Sabbaghi, A., Rashidy Kanan, H., Key-van-pour, M.R.: Fsct: A new fuzzy
  []
@@ -413,18 +413,18 @@ Package rerunfilecheck Info: File `seminar.out' has not changed.
 (rerunfilecheck)             Checksum: FC5D04DC9C51AC6B8071F8A71498BC5E;594.
  ) 
 Here is how much of TeX's memory you used:
- 10001 strings out of 477984
- 160626 string characters out of 5838479
+ 10002 strings out of 477984
+ 160637 string characters out of 5838479
  1862388 words of memory out of 5000000
  29969 multiletter control sequences out of 15000+600000
  519416 words of font info for 60 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,7n,76p,2377b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,76p,2377b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/bipinoli/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on seminar.pdf (14 pages, 147559 bytes).
+Output written on seminar.pdf (14 pages, 147860 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 199 compressed objects within 2 object streams
- 97 named destinations out of 1000 (max. 500000)
+ 250 PDF objects out of 1000 (max. 8388607)
+ 200 compressed objects within 2 object streams
+ 98 named destinations out of 1000 (max. 500000)
  9 words of extra memory for PDF output out of 10000 (max. 10000000)
 
