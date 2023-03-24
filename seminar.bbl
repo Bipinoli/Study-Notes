@@ -33,11 +33,6 @@ Godefroid, P.: Compositional dynamic test generation. In: Proceedings of the
   34th annual ACM SIGPLAN-SIGACT symposium on Principles of programming
   languages. pp. 47--54 (2007)
 
-\bibitem{godefroid2005dart}
-Godefroid, P., Klarlund, N., Sen, K.: Dart: Directed automated random testing.
-  In: Proceedings of the 2005 ACM SIGPLAN conference on Programming language
-  design and implementation. pp. 213--223 (2005)
-
 \bibitem{godefroid2012sage}
 Godefroid, P., Levin, M.Y., Molnar, D.: Sage: Whitebox fuzzing for security
   testing: Sage has had a remarkable impact at microsoft. Queue  10(1),  20--27
