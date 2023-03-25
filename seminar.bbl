@@ -27,6 +27,10 @@ Godefroid, P., Levin, M.Y., Molnar, D.: Sage: Whitebox fuzzing for security
   testing: Sage has had a remarkable impact at microsoft. Queue  10(1),  20--27
   (2012)
 
+\bibitem{majumdar2007hybrid}
+Majumdar, R., Sen, K.: Hybrid concolic testing. In: 29th International
+  Conference on Software Engineering (ICSE'07). pp. 416--426. IEEE (2007)
+
 \bibitem{miller1990empirical}
 Miller, B.P., Fredriksen, L., So, B.: An empirical study of the reliability of
   unix utilities. Communications of the ACM  33(12),  32--44 (1990)
