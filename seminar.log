@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.13)  24 MAR 2023 18:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.13)  25 MAR 2023 14:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -368,63 +368,66 @@ a shorter form with \titlerunning prior to \maketitle
 [1
 
 
-{/Users/bipinoli/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
-Overfull \hbox (68.07068pt too wide) in paragraph at lines 138--139
+{/Users/bipinoli/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \vbox (badness 5105) has occurred while \output is active []
+
+ [2] [3] [4]
+Overfull \hbox (68.07068pt too wide) in paragraph at lines 139--140
 \OT1/cmr/m/n/10 the open source im-ple-men-ta-tion of oSIP pro-to-col (http://www.gnu.org/software/osip/osip.html)
  []
 
-[5]
-Overfull \hbox (8.41788pt too wide) in paragraph at lines 172--173
+[5] [6]
+Overfull \hbox (8.41788pt too wide) in paragraph at lines 173--174
  []\OT1/cmr/bx/n/10 Configurability part:[] \OT1/cmr/m/n/10 We have im-ple-mented these strate-gies in CREST, ouropen
  []
 
-[6] [7] [8] [9] [10]
-Overfull \hbox (6.20914pt too wide) in paragraph at lines 253--254
+[7] [8] [9] [10] [11]
+Overfull \hbox (6.20914pt too wide) in paragraph at lines 254--255
 []\TS1/cmr/m/n/10 ˆ\OT1/cmr/m/n/10 Efficient repet-i-tive test-ing and con-crete environ-ment.The ef-fi-ciency ofQSYM-
  []
 
-[11]
-Overfull \hbox (27.9476pt too wide) in paragraph at lines 288--292
+[12]
+Overfull \hbox (27.9476pt too wide) in paragraph at lines 289--293
  []\OT1/cmr/bx/n/10 Result:[] \OT1/cmr/m/n/10 In ex-per-i-ments with the CB-multios dataset for deep bug cases, Dr.PathFinder
  []
 
 
-Overfull \hbox (6.04366pt too wide) in paragraph at lines 288--292
+Overfull \hbox (6.04366pt too wide) in paragraph at lines 289--293
 \OT1/cmr/m/n/10 times fewer test cases and used at least 2bugs lo-cated in deep paths, Dr.PathFinder
  []
 
-[12]
-Overfull \hbox (0.90508pt too wide) in paragraph at lines 307--309
+
+Overfull \hbox (0.90508pt too wide) in paragraph at lines 308--310
 \OT1/cmr/m/n/10 see ralated work sec-tion of https://dl.acm.org/doi/pdf/10.1145/2635868.2635872
  []
 
-[13] (./seminar.bbl
-Underfull \hbox (badness 1173) in paragraph at lines 65--69
+[13] (./seminar.bbl [14]
+Underfull \hbox (badness 1173) in paragraph at lines 70--74
 []\OT1/cmr/m/n/9 Sabbaghi, A., Rashidy Kanan, H., Key-van-pour, M.R.: Fsct: A new fuzzy
  []
 
 
-Underfull \hbox (badness 2401) in paragraph at lines 65--69
+Underfull \hbox (badness 2401) in paragraph at lines 70--74
 \OT1/cmr/m/n/9 search strat-egy in con-colic test-ing. In-for-ma-tion and Soft-ware Tech-nol-ogy
  []
 
-[14]) [15] (./seminar.aux)
+) [15] (./seminar.aux)
 Package rerunfilecheck Info: File `seminar.out' has not changed.
 (rerunfilecheck)             Checksum: FC5D04DC9C51AC6B8071F8A71498BC5E;594.
  ) 
 Here is how much of TeX's memory you used:
- 10007 strings out of 477984
- 160730 string characters out of 5838479
+ 10009 strings out of 477984
+ 160763 string characters out of 5838479
  1862388 words of memory out of 5000000
- 29971 multiletter control sequences out of 15000+600000
+ 29972 multiletter control sequences out of 15000+600000
  519416 words of font info for 60 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,6n,76p,2377b,596s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,7n,76p,2377b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/bipinoli/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on seminar.pdf (15 pages, 151934 bytes).
+Output written on seminar.pdf (15 pages, 152884 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 207 compressed objects within 3 object streams
- 101 named destinations out of 1000 (max. 500000)
+ 268 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
+ 102 named destinations out of 1000 (max. 500000)
  9 words of extra memory for PDF output out of 10000 (max. 10000000)
 

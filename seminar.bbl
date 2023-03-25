@@ -7,6 +7,11 @@ Burnim, J., Sen, K.: Heuristics for scalable dynamic test generation. In: 2008
   23rd IEEE/ACM International Conference on Automated Software Engineering. pp.
   443--446 (2008)
 
+\bibitem{cadar2008klee}
+Cadar, C., Dunbar, D., Engler, D.R., et~al.: Klee: unassisted and automatic
+  generation of high-coverage tests for complex systems programs. In: OSDI.
+  vol.~8, pp. 209--224 (2008)
+
 \bibitem{cha2018automatically}
 Cha, S., Hong, S., Lee, J., Oh, H.: Automatically generating search heuristics
   for concolic testing. In: Proceedings of the 40th International Conference on
