@@ -1,16 +1,15 @@
 # Fdb version 4
-["bibtex seminar"] 1679754242 "seminar.aux" "seminar.bbl" "seminar" 1679754243 0
+["bibtex seminar"] 1679774543 "seminar.aux" "seminar.bbl" "seminar" 1679774543 0
   "./literature.bib" 1679751038 8004 05d4aaa07094771e13a91cf88f285210 ""
   "./splncs03.bst" 1650522766 33098 4ef5df5462ae7c3cec476a39dec1b7bb ""
-  "seminar.aux" 1679754243 11492 c59ed89429a119a510a2a79746ce11fd "pdflatex"
+  "seminar.aux" 1679774543 9548 ad8f01f8dc4e2bd133acf8b8649e58c7 "pdflatex"
   (generated)
   "seminar.bbl"
   "seminar.blg"
   (rewritten before read)
-["pdflatex"] 1679754242 "/Users/bipinoli/university/seminar/thesis/seminar.tex" "seminar.pdf" "seminar" 1679754243 0
+["pdflatex"] 1679774543 "/Users/bipinoli/university/seminar/thesis/seminar.tex" "seminar.pdf" "seminar" 1679774543 0
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
-  "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm" 1246382020 996 a18840b13b499c08ac2de96a99eda4bc ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
@@ -20,20 +19,13 @@
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm" 1136768653 1328 5442e22a7072966dbaf88ca900acf3f0 ""
-  "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
-  "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm" 1136768653 1524 d89e2d087a9828407a196f428428ef4a ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
-  "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1136768653 1300 b62933e007d01cfd073f79b963c01526 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1136768653 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
-  "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
-  "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm" 1136768653 1116 25a7bf822c58caf309a702ef79f4afbb ""
-  "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm" 1136768653 764 c98a2af25c99b73a368cf7336e255190 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb" 1248133631 32298 c6d25bb16d1eac01ebdc6d7084126a1e ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
-  "/Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb" 1248133631 29078 718ea4567ceff944262b0f5b0800e1d9 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/tex/generic/babel-english/english.ldf" 1496785618 7008 9ff5fdcc865b01beca2b0fe4a46231d4 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-dist/tex/generic/babel/babel.sty" 1676321701 151363 1f5971af3ef874d432e8fb43e0edb71d ""
@@ -92,12 +84,12 @@
   "/Users/bipinoli/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1679157175 11524 199ceded07e06842f0fae37287825e95 ""
   "/Users/bipinoli/Library/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt" 1678677372 6477629 5648fee941d23e6f9794cab9883f84b8 ""
   "/Users/bipinoli/Library/TinyTeX/texmf.cnf" 1678677300 637 edd806fb06a89761a6034e1968af9017 ""
-  "/Users/bipinoli/university/seminar/thesis/seminar.tex" 1679754242 39831 de6460f3d38d487478691fd4c69a5e63 ""
+  "/Users/bipinoli/university/seminar/thesis/seminar.tex" 1679774542 37479 d4d590e98de6808ff63c9425322e38ce ""
   "llncs.cls" 1650522766 43045 6d154ebd01f1bef97e418fe148c315c3 ""
-  "seminar.aux" 1679754243 11492 c59ed89429a119a510a2a79746ce11fd "pdflatex"
-  "seminar.bbl" 1679754242 4662 3ebf3f34111911e93111c2b8d21ac89c "bibtex seminar"
-  "seminar.out" 1679754243 594 fc5d04dc9c51ac6b8071f8a71498bc5e "pdflatex"
-  "seminar.tex" 1679754242 39831 de6460f3d38d487478691fd4c69a5e63 ""
+  "seminar.aux" 1679774543 9548 ad8f01f8dc4e2bd133acf8b8649e58c7 "pdflatex"
+  "seminar.bbl" 1679774543 1390 7d167cceaec8ff339c611b4a87cea897 "bibtex seminar"
+  "seminar.out" 1679774543 434 918bfede4e1aa0623be8581603eb1c2f "pdflatex"
+  "seminar.tex" 1679774542 37479 d4d590e98de6808ff63c9425322e38ce ""
   (generated)
   "seminar.aux"
   "seminar.log"

@@ -1,32 +1,11 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
-
-\bibitem{kousik2008heuristic}
-Burnim, J., Sen, K.: Heuristics for scalable dynamic test generation. In: 2008
-  23rd IEEE/ACM International Conference on Automated Software Engineering. pp.
-  443--446 (2008)
 
 \bibitem{cadar2008klee}
 Cadar, C., Dunbar, D., Engler, D.R., et~al.: Klee: unassisted and automatic
   generation of high-coverage tests for complex systems programs. In: OSDI.
   vol.~8, pp. 209--224 (2008)
-
-\bibitem{cha2018automatically}
-Cha, S., Hong, S., Lee, J., Oh, H.: Automatically generating search heuristics
-  for concolic testing. In: Proceedings of the 40th International Conference on
-  Software Engineering. pp. 1244--1254 (2018)
-
-\bibitem{cha2018template}
-Cha, S., Lee, S., Oh, H.: Template-guided concolic testing via online learning.
-  In: Proceedings of the 33rd ACM/IEEE International Conference on Automated
-  Software Engineering. pp. 408--418 (2018)
-
-\bibitem{adapt2019heuristic}
-Cha, S., Oh, H.: Concolic testing with adaptively changing search heuristics.
-  In: Proceedings of the 2019 27th ACM Joint Meeting on European Software
-  Engineering Conference and Symposium on the Foundations of Software
-  Engineering. pp. 235--245 (2019)
 
 \bibitem{chakrabarti2006software}
 Chakrabarti, A., Godefroid, P.: Software partitioning for effective automated
@@ -48,59 +27,8 @@ Godefroid, P., Levin, M.Y., Molnar, D.: Sage: Whitebox fuzzing for security
   testing: Sage has had a remarkable impact at microsoft. Queue  10(1),  20--27
   (2012)
 
-\bibitem{jaffar2013boosting}
-Jaffar, J., Murali, V., Navas, J.A.: Boosting concolic testing via
-  interpolation. In: Proceedings of the 2013 9th Joint Meeting on Foundations
-  of Software Engineering. pp. 48--58 (2013)
-
-\bibitem{drPathfinder2022}
-Jeon, S., Moon, J.: Dr. pathfinder: hybrid fuzzing with deep reinforcement
-  concolic execution toward deeper path-first search. Neural Computing and
-  Applications  34(13),  10731--10750 (2022)
-
-\bibitem{majumdar2007hybrid}
-Majumdar, R., Sen, K.: Hybrid concolic testing. In: 29th International
-  Conference on Software Engineering (ICSE'07). pp. 416--426. IEEE (2007)
-
 \bibitem{miller1990empirical}
 Miller, B.P., Fredriksen, L., So, B.: An empirical study of the reliability of
   unix utilities. Communications of the ACM  33(12),  32--44 (1990)
-
-\bibitem{fsct2019}
-Sabbaghi, A., {Rashidy Kanan}, H., Keyvanpour, M.R.: Fsct: A new fuzzy search
-  strategy in concolic testing. Information and Software Technology  107,
-  137--158 (2019),
-  \url{https://www.sciencedirect.com/science/article/pii/S0950584918302428}
-
-\bibitem{seo2014we}
-Seo, H., Kim, S.: How we get there: A context-guided search strategy in
-  concolic testing. In: Proceedings of the 22nd ACM SIGSOFT International
-  Symposium on Foundations of Software Engineering. pp. 413--424 (2014)
-
-\bibitem{wang2018towards}
-Wang, X., Sun, J., Chen, Z., Zhang, P., Wang, J., Lin, Y.: Towards optimal
-  concolic testing. In: Proceedings of the 40th International Conference on
-  Software Engineering. pp. 291--302 (2018)
-
-\bibitem{pathcrawler2021}
-Williams, N.: Towards exhaustive branch coverage with pathcrawler. In: 2021
-  IEEE/ACM International Conference on Automation of Software Test (AST). pp.
-  117--120 (2021)
-
-\bibitem{xie2009fitness}
-Xie, T., Tillmann, N., De~Halleux, J., Schulte, W.: Fitness-guided path
-  exploration in dynamic symbolic execution. In: 2009 IEEE/IFIP International
-  Conference on Dependable Systems \& Networks. pp. 359--368. IEEE (2009)
-
-\bibitem{yan2006backtracking}
-Yan, J., Zhang, J.: Backtracking algorithms and search heuristics to generate
-  test suites for combinatorial testing. In: 30th Annual International Computer
-  Software and Applications Conference (COMPSAC'06). vol.~1, pp. 385--394. IEEE
-  (2006)
-
-\bibitem{yun2018qsym}
-Yun, I., Lee, S., Xu, M., Jang, Y., Kim, T.: {QSYM: A Practical Concolic
-  Execution Engine Tailored for Hybrid Fuzzing}. In: Proceedings of the 27th
-  USENIX Security Symposium (Security). Baltimore, MD (Aug 2018)
 
 \end{thebibliography}

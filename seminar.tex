@@ -36,7 +36,7 @@
 
 % Title for the seminar
 
-\newcommand{\theseminartitle}{Dynamic symbolic execution (concolic execution)}
+\newcommand{\theseminartitle}{Concolic execution}
 
 
 %*********************************************************************%
@@ -88,57 +88,47 @@ A major issue while concolic execution is that it is not feasible to test all th
 
 \subsection{Analysis on compositional parts}
 
+Earliest ideas to deal with path-explosion were based on performing analysis compositionally.
+Chakrabarti et al. (2006) \cite{chakrabarti2006software} presented an approach for identifying data and control inter-dependencies using the static program analysis. The idea is to group together highly-intertwined components together and separate the program into smaller pieces such that they can be individually tested. They used popularity of the component and the sharing of code to determine the split threshold. If the function is very popular and is being called from a lot of places then it is likely to be not closely linked to any component, whereas if two functions share many of the same functions then it is likely that the higher level operation they perform is close to each other. They evaluated the effectiveness of the idea by implenting it against the open source implementation of telephony protocol for call establishment called oSIP protocol (http://www.gnu.org/software/osip/osip.html), showing that the automatic program partitioning can be used to test software without generating many false alarams caused by unrealistic inputs being injected at interfaces between the units.
+
+In 2007, Godefroid et al. \cite{godefroid2007compositional} further proposed a complementary idea \cite{godefroid2007compositional} to Chakrabarti et al. \cite{chakrabarti2006software} in the context of performing concolic execution compositionally by adapting the known known techniques of static analysis. 
+They proposed an algorithm called SMART standing for Systematic Modular Automated Random Testing, as a more efficient search method than DART \cite{godefroid2005dart} without compromising in the level of completeness provided by DART. SMART works by testing functions in isolation and by collecting the testing results as function summaries which are expressed using the function inputs are preconditions and outputs as post-conditions. The function summaries are re-used to test higher level functions. Starting from the top-level function of the call-flow graph the summaries are calculated in a top-down way dynamically. Using the initial random inputs the summaries are calculated from top-level function until the execution terminates. Using the DART then the analysis is backtracked computing summaries in each of those executions. When the analysis is run again the earlier computed summaries can be re-used without having to perform detailed analysis again. Due to this, SMART improves the exponential program execution of DART to linear, making it much more scalable.
+
+% ------------------------------
+
+
+
+% -------------------
+
 \subsection{Switching between random and concolic execution}
+- 2007: hybrid
 
 \subsection{Heuristic based approaches}
+- 2008: heuristics
+- 2009: fitness function
+- 2014: context guided
+- 2018: automatic heuristics
+- 2018: towards optimal 
+- 2019: adapting changing heuristics
 
 \subsection{Interpolation based approach}
+- 2013: interpolation
 
 \subsection{Template-guided approach}
+- 2018: template guided
 
 \subsection{Optimizatin of a constraint solver}
+- 2018: QSYM
 
 \subsection{Using reinforcement learning to prioritize the path}
+- 2022: korean paper
 
 
 % ------------------------------
 \section{papers}
-\subsection{2007: Performing dynamic test generation compositionally}
-\cite[paper]{godefroid2007compositional}
-
-\subsubsection{Gist:}
-The general idea behind this new search algorithm is to perform dynamic  test generation compositionally, by adapting (dualizing) known techniques for interproce-dural static analysis to the context of automated dynamic test gener-ation.
-
-\subsubsection{Methodlogy:}
-new search algorithm called SMART which stands for duce a new algorithm, dubbed SMARTfor Systematic Modular Automated Random Testing, a more efficent search method then DART without compromising
-completeness. It tests functions in isolation, collects testing results as function summaries ex-pressed using preconditions on function inputs and postconditionson function outputs, and then re-use those summaries when testinghigher-level functions.
-
-A SMART search performs dynamic test generation composi-tionally,  using  function  summaries  as  defined  previously.  Thosesummaries  are  dynamically  computed  in  a  top-down  mannerthrough the call-flow graphGPofP. Starting from the top-levelfunction, one executes the program (initially on some random in-puts) until one  reaches  a first functionfwhose execution termi-nates on a return orhaltstatement. One then backtracks insidefas much as  possible  using DART, computing summaries  for thatfunction and each of those DART-triggered executions. When thissearch (backtracking)  infis over, one then resumes the originalexecution wherefwas called,  this time treatingfessentially asa black-box,  i.e., without analyzing it and re-using its previouslycomputed  summary  instead. 
-
-\subsubsection{Result:}
-SMART can perform dynamic test generation com-positionally without any reduction in program path coverage. Wealso show that, given a bound on the maximum number of feasiblepaths in individual program functions, the number of program exe-cutions explored by SMART is linear in that bound, while the num-ber of program executions explored by DART can be exponentialin that bound.
-SMART = scalable DART
-
-% ------------------------------
-
-\subsection{2006: Software Partitioning for Effective Automated Unit Testing}
-\cite{chakrabarti2006software}
-
-\subsubsection{Gist:}
-present an approach thatidentifies control and data inter-dependencies between soft-ware components using static program analysis, and dividesthe source code into units where highly-intertwined compo-nents are grouped together. Those units can then be testedin isolation using automated test generation techniques andtools,  such as dynamic software model checkers
-
-\subsubsection{Methodlogy:}
-group together functions or components that share interfaces of complexity higher than 
-a particular threshold. Complexity is determined by the popularity and sharing of code. The idea is that 
-if the function is very popular and is being called from a lot of places then it is likely that it is not closely liked to any component. 
-And, the sharing of code meaning if two functions share many of the same functions then it is likely that the higher level operation they perform is close to each other.
-
-\subsubsection{Configurability part:}
-evaluated the effectiveness by applying the algorithm to the open source implementation of oSIP protocol (http://www.gnu.org/software/osip/osip.html) which is a telephony protocol for call establishment. 
 
 
-\subsubsection{Result:}
-showing  that  auto-matic  software  partitioning  can  significantly  increase  testcoverage without generating too many false alarms causedby unrealistic inputs being injected at interfaces betweenunits
+
 
 % ------------------------------
 \subsection{2007: Hybrid concolic testing (**)}
@@ -318,25 +308,6 @@ i.e 2018: Automatically Generating Search Heuristics for Concolic Testing paper
 
 \section{Conclusion}
 
-\section{Papers}
-
-
-\begin{itemize}
-  \item 2006: they worked on backtracking algorithms for search heuristics \cite{yan2006backtracking}
-  \item 2007: they combined the fuzzing techniques to improve the coverage \cite{majumdar2007hybrid} \cite{godefroid2007compositional} \cite{godefroid2012sage}
-  \item 2008: Heuristic based approach to select the branches \cite{kousik2008heuristic}
-  \item 2009: they worked on the fitness guided approach to improve the coverage \cite{xie2009fitness}
-  \item 2013: they boosted concolic testing by subsuming paths that are guaranteed to not hit a bug with their interpolation technique \cite{jaffar2013boosting}
-  \item 2014: they introduced a concept of context guided search strategy \cite{seo2014we}
-  \item 2018: automatic selection of suitable heuristic \cite{cha2018automatically}
-  \item 2018: template guided approach \cite{cha2018template}
-  \item 2018: based on probability of program paths and the cost of constraint solving \cite{wang2018towards}
-  \item 2018: they improved the speed of SMT solver by removing the IR layer making it more practical to keep bigger constraints \cite{yun2018qsym}
-  \item 2019: fuzzy search strategy \cite{fsct2019}
-  \item 2019: adaptably changing search heuristics \cite{adapt2019heuristic}
-  \item 2021: Pathcrawler: proposed different strategies to improve the performance of concolic execution on exhaustive branch coverage \cite{pathcrawler2021}
-  \item 2022: Dr. Pathfinder \cite{drPathfinder2022} combined concolic execution with deep reinforement learning to prioritize deep paths over shallow ones for hybrid fuzzing
-\end{itemize}
 
 
 %*********************************************************************%
