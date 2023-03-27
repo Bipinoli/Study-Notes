@@ -70,6 +70,7 @@
 \section{Abstract}
 Configurable systems with many dials and knobs brings in a big testing challenge. In presence of many possible variants and configuration options it is very important to automate the testing as much as possible. Directed automatic random testing, popularly known as concolic execution is a primary way how it is done. Concolic execution  is a software verification technique that performs symbolic execution together with concrete input values. Concrete values are selected with the help of a constraint solver to guide a program flow in a particular direction. The selection of concrete values helps to scale the verification to a larger program as it makes the symbolic constraints smaller by selecting specific branches in the program. Compared to random execution, this allows us to guide the analysis in a direction likely to have bugs which makes this technique powerful. However, in doing so, we sacrifice the completeness of the analysis in favor of the depth of analysis. The sheer number of branches in a large program makes it difficult to perform a complete analysis, so we have to attack this problem in a different way. There have been many studies to deal with this path-explosion problem. In this paper, I have categorically presented them.
 
+% --------------------------
 \section{Introduction}
 Software is an integral component in many aspects of modern life. Many critical systems are driven by software. Complex relationship between man and machine, and the variety of applications has produced complex software. Much of this complexity is inherent in the problem, however the act of implementation also brings in its own complexity. Furthermore, due to the dynamic nature of human needs the software is required to evolve and change all the time. It is expected to operate under various conditions and use cases. This has given rise to configurable softwares with lot of configurable options and variants. It is important to verify the correctness of software to use it with confidence but this complexity, pace of change and the size of software makes it challenging to do so.
 
@@ -84,7 +85,11 @@ under the guidence of concolic execution which helps SAGE to perform fuzzing wit
 
 A major issue while concolic execution is that it is not feasible to test all the execution paths of the program. The number of paths of execution grows exponentially with the number of branches in the program. This is callend a path-explosion problem. As, it is not possible to exhaustively test all the paths in the program, many approaches have been proposed to attack this problem in different ways, such as: by prioritizing the branches likely to lead to a bug, by decomposing the analysis into smaller components, etc. I have categorially presented various approaches.
 
+% --------------------------
+
 \section{Approaches}
+
+% --------------------------
 
 \subsection{Analysis on compositional parts}
 
@@ -94,32 +99,46 @@ Chakrabarti et al. (2006) \cite{chakrabarti2006software} presented an approach f
 In 2007, Godefroid et al. \cite{godefroid2007compositional} further proposed a complementary idea \cite{godefroid2007compositional} to Chakrabarti et al. \cite{chakrabarti2006software} in the context of performing concolic execution compositionally by adapting the known known techniques of static analysis. 
 They proposed an algorithm called SMART standing for Systematic Modular Automated Random Testing, as a more efficient search method than DART \cite{godefroid2005dart} without compromising in the level of completeness provided by DART. SMART works by testing functions in isolation and by collecting the testing results as function summaries which are expressed using the function inputs are preconditions and outputs as post-conditions. The function summaries are re-used to test higher level functions. Starting from the top-level function of the call-flow graph the summaries are calculated in a top-down way dynamically. Using the initial random inputs the summaries are calculated from top-level function until the execution terminates. Using the DART then the analysis is backtracked computing summaries in each of those executions. When the analysis is run again the earlier computed summaries can be re-used without having to perform detailed analysis again. Due to this, SMART improves the exponential program execution of DART to linear, making it much more scalable.
 
+% --------------------------
+
 \subsection{Hybrid of random and concolic execution}
 Majumdar et al. (2007) \cite{majumdar2007hybrid} proposed an algorithm that combines random testing and concolic exection. Their idea is to perform random testing until saturation and switch to concolic execution from there to explore the neighbouring states exhaustively. Random testing helps to reach the deep state of the program quickly whereas concolic exection from there helps to widen the reach, thereby helping in deep and wide exploration of the program state space. First the algorithm starts with random testing keeping track of coverage points. When the test saturates i.e the coverage points doesn't improve any further, it switches to concolic exection from that program state. Using concolic exection the algorithm tries to find an uncovered point. When it founds one, the algorithm switches back the random testing mode from there. This swtiching back and forth between random testing and concolic execution brings in the benefits for both methods. Random testing inexpensively allows for a long program execution to a deep state and concolic execution helps to symbolically search in a exhaustive way for a new path.
 
-Majumdar et al. \cite{majumdar2007hybrid} compared this algorithm to separate individual random testing and concolic testing on the VIM text editor (150K lines code in C) and their implementation of popular red-black tree data structure. They found that the hybrid testing consistently outperforms the two methods interms of the branch coverage. Furthermore, as the hybrid method relies on faster and cheaper random testing to explore the program state as much as possible which helps in avoiding the expensive constraint solving whenever possible. This avoidance of constraint sovling doesn't hamper the ability to explore the program state as the algorithm switches back to local exhaustive search whenever necessary. Concolic execution as proposed in DART \cite{godefroid2005dart} by itself can get stuck in exploring a huge number of possible paths which prevents it from reaching a particular state of interest. Random testing can get saturated, never being able to push through a branch. Thus the combination of them in this hybrid method helps to avoid both of those limitations. 
+Majumdar et al. \cite{majumdar2007hybrid} compared this algorithm to separate individual random testing and concolic testing on the VIM text editor (150K lines code in C) and their implementation of popular red-black tree data structure. They found that the hybrid testing consistently outperforms the two methods interms of the branch coverage. Furthermore, as the hybrid method relies on faster and cheaper random testing to explore the program state as much as possible which helps in avoiding the expensive constraint solving whenever possible. This avoidance of constraint sovling doesn't hamper the ability to explore the program state as the algorithm switches back to local exhaustive search whenever necessary. Concolic execution as proposed in DART \cite{godefroid2005dart} by itself can get stuck in exploring a huge number of possible paths which prevents it from reaching a particular state of interest. Random testing can get saturated, never being able to push through a branch. Thus, the combination of them in this hybrid method helps to avoid both of those limitations. 
 
-Even though the hybrid method shows the clear benefits over the individual methods, it still suffers from the limitations of the concolic exection. The discovery of new path of coverage depends on the capacity of the constraint solver and the path-explosion problem in exhaustive local search. Thus, this method may not achieve 100 percent coverage but it can improve the coverage considerably.
+Even though the hybrid method shows the clear benefits over the individual methods, it still suffers from the limitations of the concolic exection. The discovery of new path of coverage depends on the capacity of the constraint solver and the exhaustive local search which suffers from path-explosion. Thus, this method may not achieve 100 percent coverage but it can improve the coverage considerably.
 
-
-% -------------------
+% --------------------------
 
 \subsection{Heuristic based approaches}
-- 2008: heuristics
-- 2009: fitness function
+A different approach in dealing with the path-explosion problem in concolic execution is by prioritizing the path likely to lead to the discovery of bug. There have been many studies in heuristically selecting the path. In the 2008 paper \cite{kousik2008heuristic} from Burnim et al, they proposed several heuristic search strategies. They proposed a search strategy guided by the control-flow graph of the program. The main idea was the greedy strategy to choose the branch based on the the distance to the uncovered branches in the CFG. This branch would be the one to be negated for, in the concolic execution process. They also proposed random search strategies. Compared to traditional random-input testing, in their strategies they proposed to randomly select the execution paths instead selecting sample form the uniform distribution of all possible program paths. They implemented the proposed strategies and open-sourced the implementation under the name CREST which is an implementation in the C programming langugae. Further, they tested their strategies on grep 2.2 (15K lines of code) and Vim5.7 (150K lines) and found a much better and faster branch coverage compared to the traditional depth-first search strategy of concolic exection. 
+
+Xie, Tao and Tillmann et al. proposed a fitness-guided approach for path exploration (2009) \cite{xie2009fitness}. They proposed an approach called Fitnex that uses state-dependent fitness values to guide the exploration of paths. The fitness values are calculated through a fitness function. Fitness function calculates how close is the discovered candidate path to the test target i.e a branch that has not been covered yet. They combined this idea of fitness along with the known heuristics to handle the cases where the fitness would fail. A fitness value is calculated for the paths that have already been explored. Using the fitness values the paths are prioritized. During the path exploration a branch is selected based on this fitness gain. 
+
 - 2014: context guided
 - 2018: automatic heuristics
 - 2018: towards optimal 
 - 2019: adapting changing heuristics
 
+% --------------------------
+
 \subsection{Interpolation based approach}
-- 2013: interpolation
+In 2013, Jaffar, Joxan and Murali, et al. suggested a new method \cite{jaffar2013boosting} for concolic testing that uses interpolation to prevent path-explosion. Using the proposed method the paths that are not guaranteed to hit a bug are subsumed which helps to deal with the path-explosion problem. The idea works with a concept of annotation which is bascially the  information of the form "if C then bug" i.e if the condtion C evaluates to true along the path then the path has a bug. When an unsatisfiable path-condition is fed to the solver, the interpolant is generated at each program point in the path. Interpolant is bascially a formula that describes why the path is infeasible i.e why it doesn't imply a bug. This means, if in the future the interpolant is implied again at the program point through a different path, that path can be subsumed as the path is guaranteed to not find a bug. This helps us to negate the branches that would be spawned by this new path and so on, thereby giving the exponential improvement.
+
+However, there are challenges \cite{jaffar2013boosting} in applying the idea of interpolation directly in concolic exection. This idea depends on the given annotations which can only be built after the full exploration of the tree. Before that we can only have half interpolants. Since, much of the exploration or path selection is driven by heuristics, we don't get the control of the search order. Due to these half interpolants the method can suffer with soundness. To address this issue, it is important to track the subtrees that have been explored completely. The node corresponding to the completely explored subtree will have a full-interpolant whereas the ones without complete exploration will have the half-interpolants. Due to this, only the nodes with full-interpolants can perform subsumption if the method has to be sound. This limits the number of subsumption that can be performed. To tackle this issue, Jaffar, Joxan and Murali, et al. \cite{jaffar2013boosting} proposed a greedy technique called greedy confirmation that perfoms some limited path exploration itself i.e execution of few extra paths without affecting the search order of the concolic exection. This extra limited exploration is guided by the subsumption. It helps to produce full-interpolants in the nodes having only half-interpolants, thereby improving the overall subsumption rate. Jaffar, Joxan and Murali, et al. \cite{jaffar2013boosting} implemented this method and compared it with CREST
+\cite{kousik2008heuristic} and found that there was a significant improvement, as a large part of the paths executed by the heuristics in CREST were simply pruned by this method as they were redundant.
+
+% --------------------------
 
 \subsection{Template-guided approach}
 - 2018: template guided
 
+% --------------------------
+
 \subsection{Optimizatin of a constraint solver}
 - 2018: QSYM
+
+% --------------------------
 
 \subsection{Using reinforcement learning to prioritize the path}
 - 2022: korean paper
@@ -127,51 +146,6 @@ Even though the hybrid method shows the clear benefits over the individual metho
 
 % ------------------------------
 \section{papers}
-
-
-
-
-% ------------------------------
-
-
-% ------------------------------
-\subsection{2008: Heuristics for Scalable Dynamic Test Generation}
-
-\subsubsection{Gist:}
-several  such  heuristic  search  strategies,  including  anovel strategy guided by the control flow graph of the programunder test. 
-
-\subsubsection{Methodlogy:}
-We  propose  a  search  strategy  that  is  guided  by  the  staticstructure  of  the  program  under  test,  namely  the  control  flowgraph  (CFG).  In  this  strategy,  we  choose  branches  to  negatefor  the  purpose  of  test  generation  based  on  their  distance  inthe CFG to currently uncovered branches. We experimentallyshow  that  this  greedy  approach  to  maximizing  the  branchcoverage helps to improve such coverage faster, and to achievegreater   final   coverage,   than   the   default   depth-first   searchstrategy of concolic testing.We further propose two random search strategies. While intraditional random testing a program is run on random inputs,these  two  strategies  test  a  program  along  random  executionpaths. The second attempts to sample uniformly from the spaceof possible program paths, while the third is a variant we havefound to be more effective in practice
-
-have implemented these search strategies in CREST, anopen-source prototype test generation tool for C
-
-\subsubsection{Configurability part:}
-We have implemented these strategies in CREST, ouropen source concolic testing tool for C, and evaluated them on twowidely-used software tools, grep 2.2 (15K lines of code) and Vim5.7 (150K lines). On these benchmarks, the presented heuristicsachieve significantly greater branch coverage on the same testingbudget than concolic testing with a traditional depth-first searchstrategy.
-
-
-% ------------------------------
-\subsection{2009: Fitness-Guided Path Exploration in Dynamic Symbolic Execution}
-
-\subsubsection{Gist:}
-To address the space-explosion  issue  in  path  exploration,  we  propose  a  novelapproach called Fitnex, a search strategy that uses state-dependent fitness values (computed through a fitness func-tion) to guide path exploration.  The fitness function mea-sures how close an already discovered feasible path is toa  particular  test  target  (e.g.,  covering  a  not-yet-coveredbranch).   Our new fitness-guided search strategy is  inte-grated with other strategies that are effective for explorationproblems where the fitness heuristic fails.
-
-\subsubsection{Methodlogy:}
-The core of our approach is the Fitnex search strat-egy guided by fitness values computed with a fitness func-tion (Section 4.1).  To deal with program branches notamenable to a fitness function, our approach includes in-tegration of the Fitnex strategy with other search strategies(Section 4.2)
-
-A fitness function (Section 4.1.1) gives a measurementon how close an explored path is to achieving a test tar-get (e.g., covering a not-yet-covered branch). We computea fitness value for each already explored path and priori-tize these known paths based on their fitness values (Sec-tion 4.1.2). We compute a fitness gain for each branch in theprogram under test and prioritize branching nodes based ontheir corresponding branches’ fitness gains (Section 4.1.3).During path exploration, we give higher priority to flippinga branching node with a better (higher) fitness gain in a pathwith a better (lower) fitness value (Section 4.1.4).
-
-% ------------------------------
-\subsection{2013: Boosting Concolic Testing via Interpolation}
-\subsubsection{Gist:}
-propose  a  new  and  complementarymethod based oninterpolation, that greatly mitigates path-explosion by subsuming paths that can be guaranteed to nothit a bug.
-
-\subsubsection{Methodlogy:}
-first,  assume  that  the  program  is  annotatedwith  certain  bug  conditions  of  the  form “if C then bug”,where  if  the  conditionCevaluates  to  true  along  a  path,the  path  is  buggy.   Then,  whenever  an  unsatisfiable  pathcondition  is  fed  to  the  solver,  an  interpolant  is  generatedat each program point along the path.  The interpolant at agiven program point can be seen as a formula thatsuccinctlycaptures the reason of infeasibility of paths at the programpoint.  In other words it succinctly captures the reason whypaths through the program point are not buggy.  As a re-sult,  if  the  program  point  is  encountered  again  through  adifferent path such that the interpolant is implied, the newpath can besubsumed, because it can be guaranteed to notbe buggy. The exponential savings are due to the fact that not only is the new path subsumed, but also the paths thatthis new path would spawn by negating its branches.
-
-Unfortunately, methods such as [12, 14, 11] cannot be useddirectly for concolic testing due to several challenges.  First,the  soundness  of  these  methods  relies  on  the  assumptionthat an interpolant at a node has been computed after ex-ploring the entire “tree” of paths that arise from the node.In concolic testing, this assumption is invalid as the testercan impose an arbitrary search order.  For example, concolictesters such as Crest [3] and KLEE [4] use often many heuris-tics that may follow a random walk through the search space,thus making this method unsound.  To address this problem,we need to keep track of nodes whose trees have been ex-plored fully (in which case we say the node is annotated withafull-interpolant) or partially (similarly, ahalf-interpolant).Under this new setting, only nodes with full-interpolants arecapable of subsumption in a sound manner.  As a result, theamount of subsumption depends on how often nodes get an-notated with full-interpolants from the paths explored by theconcolic tester.  Unfortunately our benchmarks in Section 6showed that the above method by itself results in very fewnodes  with  full-interpolants,  thereby  providing  poor  bene-fit to the concolic tester, because the tester rarely exploresthe entire tree of paths arising from a node.  Hence, an im-portant  challenge  now  is  to “accelerate” the  formation  offull-interpolants in order to increase subsumption.  For this,we  introduce  a  novel  technique  calledgreedy  confirmationthat performs limited path exploration (i.e., execution of afew extra paths) by itself, guided by subsumption, with anaim to produce a full-interpolant at nodes currently anno-tated with a half-interpolant.  It is worth mentioning thatthis execution of few paths is done without interfering withthe search order of the concolic tester.  This technique ul-timately  resulted  in  a  significant  increase  in  subsumptionfor our benchmarks, and is vital for the effectiveness of ourmethod.We implemented our method and compared it with a pub-licly available concolic tester, Crest [3].  We found that forthe price of a reasonable overhead to compute interpolants,a large percentage of paths executed by those heuristics canbe subsumed thereby increasing their coverage substantially.
-
-\subsubsection{Result:}
-We  attacked  the  path-explosion  problem  of  concolic  test-ing  by  pruning  redundant  paths  using  interpolation.   Thechallenge for interpolation in concolic testing is the lack ofcontrol of search order.  To solve this, we presented the con-cept of half and full interpolants that makes the use of in-terpolants sound, and greedy confirmation that acceleratesthe formation of full-interpolants thereby increasing the like-lihood  of  subsuming  paths. 
 
 % ------------------------------
 \subsection{2014: A Context-Guided Search Strategy inConcolic Testing}
