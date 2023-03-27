@@ -115,8 +115,19 @@ A different approach in dealing with the path-explosion problem in concolic exec
 
 Xie, Tao and Tillmann et al. proposed a fitness-guided approach for path exploration (2009) \cite{xie2009fitness}. They proposed an approach called Fitnex that uses state-dependent fitness values to guide the exploration of paths. The fitness values are calculated through a fitness function. Fitness function calculates how close is the discovered candidate path to the test target i.e a branch that has not been covered yet. They combined this idea of fitness along with the known heuristics to handle the cases where the fitness would fail. A fitness value is calculated for the paths that have already been explored. Using the fitness values the paths are prioritized. During the path exploration a branch is selected based on this fitness gain. 
 
-- 2014: context guided
-- 2018: automatic heuristics
+In 2014, Seo, Hyunmin and Kim, et al. proposed an idea \cite{seo2014we} which considers context information of how the exection reaches the branch called Context-guided search (CGS). This idea is different from the traditional search strategies in a sense that traditional search strategies primarily focus on the branch coverage information in the branch selection process. Context-guided search works by exploring the branches in the current exection tree where each visted branches are considered if they should be selected for the next input or should they be skipped. The context is calculated by looking at the way exection reached the current branch. The context of preceding branches and dominator information is used in the calculation of this context. To select the branch for the next input, context-guided search compares the context with the contexts of previously selected branches which are stored in the context cache. The branch is selected for the next input if the context of it is new, otherwise it is skipped from the next input.
+
+So far, many individual heuristics were proposed but the selection of them were mainly manual. In the 2018 paper titled "Automatically Generating Search Heuristics for Concolic Testing" \cite{cha2018automatically} Cha, Sooyoung and Hong, et al. introduced a way to automatically select a suitable heuristics based on the parameters. They also proposed an optimization algorithm to find a good values for parameters in an efficient way. They created different classes of search heuristics and defined in the context of parameters. The selection of the heuristic is then determined by the value of parameters. The value of parameters is thus an important part in the choice of the right heuristic. However, the search space for the value of parameters is too large to search through in in a brute-force way. Due For this, they used the iterative process of iteratively refining the search space based on the feedbacks from the previous runs of the concolic execution. 
+
+% ------------------------------
+\subsection{2018: Towards Optimal Concolic Testing}
+\subsubsection{Gist:}
+show the optimal strategy can be defined based onthe probability of program paths and the cost of constraintsolving. The problem of identifying the optimal strategy isthen reduced to a model checking problem of Markov DecisionProcesses with Costs. Secondly, in view of the complexity inidentifying the optimal strategy, we design a greedy algorithmfor approximating the optimal strategy.
+
+\subsubsection{Methodlogy:}
+aim to develop a framework which allowsus to define and compute the optimal concolic testing strate-gy. That is, we aim to systematically answer when to applyconcrete execution, when to apply symbolic execution andwhich program path to apply symbolic execution to. In par-ticular, we make the following technical contributions. Firstly,we show that the optimal concolic testing strategy can bedefined based on a probabilistic abstraction of program be-haviors. Secondly, we show that the problem of identifyingthe optimal strategy can be reduced to a model checkingproblem of Markov Decision Processes with Costs. As a re-sult, we can reuse existing tools and algorithms to solve theproblem. Thirdly, we evaluate existing heuristics empiricallyusing a set of simulated experiments and show that theyhave much room to improve. Fourthly, in view of the highcomplexity in computing the optimal strategy, we propose agreedy algorithm which approximates the optimal one. Weempirically evaluate the greedy algorithm based on both sim-ulated experiments and experiments with C programs, andshow that it gains better performance than existing heuristicsin KLEE 
+
+
 - 2018: towards optimal 
 - 2019: adapting changing heuristics
 
@@ -147,28 +158,10 @@ However, there are challenges \cite{jaffar2013boosting} in applying the idea of 
 % ------------------------------
 \section{papers}
 
-% ------------------------------
-\subsection{2014: A Context-Guided Search Strategy inConcolic Testing}
-\subsubsection{Gist:}
-While moststrategies  focus  on  coverage  information  in  the  branch  se-lection process, we introduce CGS which considers contextinformation, that is, how the execution reaches the branch.Our  evaluation  results  show  that  CGS  outperforms  otherstrategies. 
-
-\subsubsection{Methodlogy:}
-CGS explores branches in the current execution tree.  Foreach visited branch, CGSexaminesthe branch and decideswhether toselectthe branch for the next input orskipit. CGS looks athow the execution reaches the current branch by calculat-ingk-contextof the branch from its preceding branches anddominator information. Then, thek-contextis comparedwith  the  context  of  previously  selected  branches  which  isstored  in  thecontext  cache.   If  thek-contextis  new,  thebranch is selected for the next input.  Otherwise, CGS skipsthe branch.
-
-\subsubsection{Configurability part:}
-We evaluate CGS on top of two publicly available concolictesting tools, CREST [13] and CarFastTool [29]
 
 
-% ------------------------------
-\subsection{2018: Automatically Generating Search Heuristics for Concolic Testing}
-\subsubsection{Gist:}
-developed a parame-terized search heuristic for concolic testing with an optimizationalgorithm to efficiently search for good parameter values. We hopethat our technique can supplant the laborious and less rewardingtask of manually tuning search heuristics of concolic testing.
 
-\subsubsection{Methodlogy:}
-this paper presents a new approachthat automatically generates search heuristics for concolic testing.To this end, we use two key ideas. First, we define aparameterizedsearch heuristic, which creates a large class of search heuristics.The parameterized heuristic reduces the problem of designing agood search heuristic into a problem of finding a good parametervalue. Second, we present a search algorithm specialized to concolictesting. The search space that the parameterized heuristic poses isintractably large. Our algorithm effectively guides the search byiteratively refining the search space based on the feedback fromprevious runs of concolic testing
 
-\subsubsection{Configurability part:}
-We have implemented our techniquein CREST [3] and evaluated it on 10 C programs (0.5–150KLoC)
 
 % ------------------------------
 \subsection{2018: Template-Guided Concolic Testing via Online Learning}
@@ -183,14 +176,6 @@ we present template-guided concolic testing, a newtechnique for adaptively reduc
 \subsubsection{Configurability part:}
 Experimental results show that our approach outperforms con-ventional concolic testing in term of branch coverage and bug-finding. We have implemented our approach in CREST [7] andcompared our technique with conventional concolic testing foropen-source C programs of medium size (up to 165K LOC). For allbenchmarks, our technique achieves significantly higher branchcoverage compared to conventional concolic testing. For example,for vim-5.7, we have performed both techniques for 70 hours, whereour technique exclusively covered 883 branches that conventionalconcolic testing failed to reach. Our technique also succeeded infinding real bugs that can be triggered in the latest versions of threeopen-source C programs: sed-4.4, grep-3.1 and gawk-4.21.
 
-
-% ------------------------------
-\subsection{2018: Towards Optimal Concolic Testing}
-\subsubsection{Gist:}
-show the optimal strategy can be defined based onthe probability of program paths and the cost of constraintsolving. The problem of identifying the optimal strategy isthen reduced to a model checking problem of Markov DecisionProcesses with Costs. Secondly, in view of the complexity inidentifying the optimal strategy, we design a greedy algorithmfor approximating the optimal strategy.
-
-\subsubsection{Methodlogy:}
-aim to develop a framework which allowsus to define and compute the optimal concolic testing strate-gy. That is, we aim to systematically answer when to applyconcrete execution, when to apply symbolic execution andwhich program path to apply symbolic execution to. In par-ticular, we make the following technical contributions. Firstly,we show that the optimal concolic testing strategy can bedefined based on a probabilistic abstraction of program be-haviors. Secondly, we show that the problem of identifyingthe optimal strategy can be reduced to a model checkingproblem of Markov Decision Processes with Costs. As a re-sult, we can reuse existing tools and algorithms to solve theproblem. Thirdly, we evaluate existing heuristics empiricallyusing a set of simulated experiments and show that theyhave much room to improve. Fourthly, in view of the highcomplexity in computing the optimal strategy, we propose agreedy algorithm which approximates the optimal one. Weempirically evaluate the greedy algorithm based on both sim-ulated experiments and experiments with C programs, andshow that it gains better performance than existing heuristicsin KLEE 
 
 % ------------------------------
 \subsection{2018: Qsym : A Practical Concolic Execution Engine Tailored for Hybrid Fuzzing}
