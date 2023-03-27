@@ -122,7 +122,7 @@ The computation of the optimal strategy has a high complexity so they proposed a
 
 So far, many individual heuristics were proposed but the selection of them were mainly manual. In the 2018 paper titled "Automatically Generating Search Heuristics for Concolic Testing" \cite{cha2018automatically} Cha, Sooyoung and Hong, et al. introduced a way to automatically select a suitable heuristics based on the parameters. They also proposed an optimization algorithm to find a good values for parameters in an efficient way. They created different classes of search heuristics and defined in the context of parameters. The selection of the heuristic is then determined by the value of parameters. The value of parameters is thus an important part in the choice of the right heuristic. However, the search space for the value of parameters is too large to search through in in a brute-force way. Due For this, they used the iterative process of iteratively refining the search space based on the feedbacks from the previous runs of the concolic execution. 
 
-- 2019: adapting changing heuristics
+Improving on the idea of the parametrized search of heuristic \cite{cha2018automatically}, in 2019, Cha, Sooyoung and Oh et al. proposed an idea \cite{adapt2019heuristic} of adapting the search heuristics on fly by using the accumulated knowledge from the previous runs of concolic exections. The presented algorithm can learn and switch between search heuristics automatically during concolic exection. They define the space of possible search heuristics using the parametric search method \cite{adapt2019heuristic} proposed earlier. The algorithm continuously switches the search heuristic from the space during the concolic execution. To do so, it uses the accumulated knowledge to learn the probability distribution of the effective and ineffective search heuristics. The algorithm then samples a new set of search heuristics from the distributions. This process continuously iteratively until we run out of the predefined testing time.
 
 % --------------------------
 
@@ -185,15 +185,6 @@ We  improved  the  performance  of  concolicexecution by optimizing emulation sp
 
 \subsubsection{Configurability part:}
 Our evaluation shows thatQSYMdoes not just out-perform state-of-the-art fuzzers (i.e.,  found 14×morebugs than VUzzer in the LAVA-M dataset, and outper-formed Driller in104binaries out of126), but also found13 previously unknown security bugsineightreal-worldprograms like Dropbox Lepton, ffmpeg, and OpenJPEG,which have already been intensively tested by the state-of-the-art fuzzers, AFL and OSS-Fuzz.
-
-
-% ------------------------------
-\subsection{2019: Concolic testing with adaptively changing search heuristics}
-\subsubsection{Gist:}
-adapting search heuristics on the fly via an algorithm that learns new search heuristics based on the knowledge accumulated during concolic testing
-
-\subsubsection{Methodlogy:}
-we present an algorithm that automaticallylearns and switches search heuristics during concolic testing. Thealgorithm maintains a set of search heuristics and continuouslychanges them during the testing process. To do so, we first definethe space of possible search heuristics using the idea of parametricsearch heuristic recently proposed in prior work [5]. A technicalchallenge is how to adaptively switch search heuristics in the pre-defined space. We address this challenge with a new concolic testingalgorithm that (1) accumulates the knowledge about the previouslyevaluated search heuristics, (2) learns the probabilistic distributionsof the effective and ineffective search heuristics from the accumu-lated knowledge, and (3) samples a new set of search heuristics from the distributions. The algorithm iteratively performs thesethree steps until it exhausts a given time budget.
 
 % ------------------------------
 \subsection{2022: Dr.PathFinder: hybrid fuzzing with deep reinforcement concolic

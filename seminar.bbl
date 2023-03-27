@@ -17,6 +17,12 @@ Cha, S., Hong, S., Lee, J., Oh, H.: Automatically generating search heuristics
   for concolic testing. In: Proceedings of the 40th International Conference on
   Software Engineering. pp. 1244--1254 (2018)
 
+\bibitem{adapt2019heuristic}
+Cha, S., Oh, H.: Concolic testing with adaptively changing search heuristics.
+  In: Proceedings of the 2019 27th ACM Joint Meeting on European Software
+  Engineering Conference and Symposium on the Foundations of Software
+  Engineering. pp. 235--245 (2019)
+
 \bibitem{chakrabarti2006software}
 Chakrabarti, A., Godefroid, P.: Software partitioning for effective automated
   unit testing. In: Proceedings of the 6th ACM \& IEEE International conference
