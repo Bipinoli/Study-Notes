@@ -55,6 +55,11 @@ Seo, H., Kim, S.: How we get there: A context-guided search strategy in
   concolic testing. In: Proceedings of the 22nd ACM SIGSOFT International
   Symposium on Foundations of Software Engineering. pp. 413--424 (2014)
 
+\bibitem{wang2018towards}
+Wang, X., Sun, J., Chen, Z., Zhang, P., Wang, J., Lin, Y.: Towards optimal
+  concolic testing. In: Proceedings of the 40th International Conference on
+  Software Engineering. pp. 291--302 (2018)
+
 \bibitem{xie2009fitness}
 Xie, T., Tillmann, N., De~Halleux, J., Schulte, W.: Fitness-guided path
   exploration in dynamic symbolic execution. In: 2009 IEEE/IFIP International
