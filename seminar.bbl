@@ -58,6 +58,11 @@ Jaffar, J., Murali, V., Navas, J.A.: Boosting concolic testing via
   interpolation. In: Proceedings of the 2013 9th Joint Meeting on Foundations
   of Software Engineering. pp. 48--58 (2013)
 
+\bibitem{drPathfinder2022}
+Jeon, S., Moon, J.: Dr. pathfinder: hybrid fuzzing with deep reinforcement
+  concolic execution toward deeper path-first search. Neural Computing and
+  Applications  34(13),  10731--10750 (2022)
+
 \bibitem{majumdar2007hybrid}
 Majumdar, R., Sen, K.: Hybrid concolic testing. In: 29th International
   Conference on Software Engineering (ICSE'07). pp. 416--426. IEEE (2007)

@@ -143,13 +143,19 @@ Cha, Sooyoung and Lee et al. implemented this approach \cite{cha2018template} in
 
 % --------------------------
 
-\subsection{Optimizatin of a constraint solver}
-- 2018: QSYM
+\subsection{Using reinforcement learning to prioritize the path}
+In the 2022 "Neural Computing and Applications" journal \cite{drPathfinder2022}, Jeon, Seungho and Moon, et al. proposed an idea \cite{drPathfinder2022} of using reinforcement learning to prioritize the path in concolic execution. The idea is to combine reinforcement learning with a hybrid fuzzing [\cite{miller1990empirical}, \cite{godefroid2012sage}] solution for prioritizing the path. The aim is to search the deep paths first and to prune the shallow paths. They formally defined a learning algorithm for deep reinforcement learning agent to guide concolic execution towards searching a deeper path first. They named this idea Dr. PathFinder. During concolic execution, when the reinforcement learning agent comes across a branch, the agent evaluates the state and decides which direction to continue the search. During this process, paths that are considered shallow are eliminated, and those that are deemed deep are prioritized in the search. This minimizes redundant exploration, enabling more efficient memory utilization and mitigating the issue of path-explosion. They experimented with the CB-multios dataset to find the effectiveness of Dr. PathFinder for deep bug cases.  They found that this method discovered approximately two times more bugs than the Driller-AFL and approximately five times more bugs than AFL. Dr. PathFinder not only detected more bugs but also produced 19 times less test cases and consumed at least 2\% less memory compared to Driller-AFL. 
+
+This method assumes that deep paths are more interesting than shallow paths in finding bugs. This heuristic has shown its effectiveness during experiments. However, due to its bias in favor of the deep paths, this method struggles to find bugs located in the shallow paths.
 
 % --------------------------
 
-\subsection{Using reinforcement learning to prioritize the path}
-- 2022: korean paper
+\subsection{Optimizatin of a constraint solver}
+- 2018: QSYM
+
+
+
+
 
 
 % ------------------------------
@@ -159,42 +165,19 @@ Cha, Sooyoung and Lee et al. implemented this approach \cite{cha2018template} in
 % ------------------------------
 \subsection{2018: Qsym : A Practical Concolic Execution Engine Tailored for Hybrid Fuzzing}
 \subsubsection{Gist:}
-we design a fast concolicexecution engine, calledQSYM, to support hybrid fuzzing.The key idea is to tightly integrate the symbolic emulationwith the native execution using dynamic binary transla-tion, making it possible to implement more fine-grained,so faster, instruction-level symbolic emulation. Addition-ally,QSYMloosens the strict soundness requirements ofconventional concolic executors for better performance,yet takes advantage of a faster fuzzer for validation, pro-viding unprecedented opportunities for performance op-timizations, e.g., optimistically solving constraints andpruning uninteresting basic blocks
+we design a fast concolicexecution engine, called QSYM, to support hybrid fuzzing. The key idea is to tightly integrate the symbolic emulation with the native execution using dynamic binary translation, making it possible to implement more fine-grained,so faster, instruction-level symbolic emulation. Addition-ally, QSYM loosens the strict soundness requirements of conventional concolic executors for better performance, yet takes advantage of a faster fuzzer for validation, providing unprecedented opportunities for performance op-timizations, e.g., optimistically solving constraints and pruning uninteresting basic blocks
 
 \subsubsection{Methodlogy:}
-•Fast concolic execution through efficient emula-tion:
-We  improved  the  performance  of  concolicexecution by optimizing emulation speed and reduc-ing emulation usage.  Our analysis identified thatsymbol generation emulation was the major perfor-mance bottleneck of concolic execution such that weresolved it with instruction-level selective symbolicexecution, advanced constraints optimization tech-niques, and tied symbolic and concolic executions.
+•Fast concolic execution through efficient emulation:
+We  improved  the  performance  of  concolic execution by optimizing emulation speed and reducing emulation usage.  Our analysis identified that symbol generation emulation was the major performance bottleneck of concolic execution such that were solved it with instruction-level selective symbolic execution, advanced constraints optimization techniques, and tied symbolic and concolic executions.
 
-•Efficient repetitive testing and concrete environ-ment.The efficiency ofQSYMmakes re-execution-based repetitive testing and the concrete executionof external environments practical. Because of this,QSYMis free from snapshots incurring significantperformance degradation and incomplete environ-ment models resulting in incorrect symbolic execu-tion due to its non-reusable nature.
+•Efficient repetitive testing and concrete environ-ment. The efficiency of QSYM makes reexecution-based repetitive testing and the concrete execution of external environments practical. Because of this, QSYM is free from snapshots incurring significant performance degradation and incomplete environment models resulting in incorrect symbolic execution due to its non-reusable nature.
 
-•New heuristics for hybrid fuzzing.We proposednew heuristics tailored for hybrid fuzzing to solveunsatisfiable paths optimistically and to prune outcompute-intensive  back  blocks,  thereby  makingQSYMproceed.
+•New heuristics for hybrid fuzzing. We proposed new heuristics tailored for hybrid fuzzing to solve unsatisfiable paths optimistically and to prune out compute-intensive  back  blocks,  thereby  making QSYM proceed.
 
 \subsubsection{Configurability part:}
-Our evaluation shows thatQSYMdoes not just out-perform state-of-the-art fuzzers (i.e.,  found 14×morebugs than VUzzer in the LAVA-M dataset, and outper-formed Driller in104binaries out of126), but also found13 previously unknown security bugsineightreal-worldprograms like Dropbox Lepton, ffmpeg, and OpenJPEG,which have already been intensively tested by the state-of-the-art fuzzers, AFL and OSS-Fuzz.
+Our evaluation shows that QSYM does not just out-perform state-of-the-art fuzzers (i.e.,  found 14× more bugs than VUzzer in the LAVA-M dataset, and outperformed Driller in 104 binaries out of 126), but also found 13 previously unknown security bugs in eight real-world programs like Dropbox Lepton, ffmpeg, and OpenJPEG, which have already been intensively tested by the state-of-the-art fuzzers, AFL and OSS-Fuzz.
 
-% ------------------------------
-\subsection{2022: Dr.PathFinder: hybrid fuzzing with deep reinforcement concolic
-execution toward deeper path-first search}
-
-\subsubsection{Gist:}
-propose a concolic execution algorithm that combines deep reinforcement learning with a hybrid fuzzing
-solution, Dr.PathFinder. When the reinforcement learning agent encounters a branch during concolic execution, it evaluates the state and determines the search path. In this process,‘‘shallow’’ paths are pruned, and ‘‘deep’’ paths are searched
-first. This reduces unnecessary exploration, allowing the efficient memory usage and alleviating the state explosion
-problem.
-
-\subsubsection{Methodlogy:}
-We formally define a learning algorithm for a deep
-reinforcement learning agent that allows concolic
-execution to first search for a deeper path.
-
-We present a deeper path-first search concolic execution algorithm using a reinforcement learning agent and
-a hybrid fuzzer called Dr.PathFinder.
-
-\subsubsection{Result:}
-In experiments with the CB-multios dataset for deep bug cases, Dr.PathFinder discovered approximately five
-times more bugs than AFL and two times more than Driller-AFL. In addition to finding more bugs, Dr.PathFinder
-generated 19 times fewer test cases and used at least 2% less memory than Driller-AFL. While it performed well in finding
-bugs located in deep paths, Dr.PathFinder had limitation to find bugs located at shallow paths, which we discussed.
 
 
 \section{Dicsussion}
