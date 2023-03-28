@@ -12,6 +12,11 @@ Cadar, C., Dunbar, D., Engler, D.R., et~al.: Klee: unassisted and automatic
   generation of high-coverage tests for complex systems programs. In: OSDI.
   vol.~8, pp. 209--224 (2008)
 
+\bibitem{cadar2008exe}
+Cadar, C., Ganesh, V., Pawlowski, P.M., Dill, D.L., Engler, D.R.: Exe:
+  Automatically generating inputs of death. ACM Transactions on Information and
+  System Security (TISSEC)  12(2),  1--38 (2008)
+
 \bibitem{cha2018automatically}
 Cha, S., Hong, S., Lee, J., Oh, H.: Automatically generating search heuristics
   for concolic testing. In: Proceedings of the 40th International Conference on
@@ -71,6 +76,16 @@ Majumdar, R., Sen, K.: Hybrid concolic testing. In: 29th International
 Miller, B.P., Fredriksen, L., So, B.: An empirical study of the reliability of
   unix utilities. Communications of the ACM  33(12),  32--44 (1990)
 
+\bibitem{sen2006cute}
+Sen, K., Agha, G.: Cute and jcute: Concolic unit testing and explicit path
+  model-checking tools: (tool paper). In: Computer Aided Verification: 18th
+  International Conference, CAV 2006, Seattle, WA, USA, August 17-20, 2006.
+  Proceedings 18. pp. 419--423. Springer (2006)
+
+\bibitem{sen2005cute}
+Sen, K., Marinov, D., Agha, G.: Cute: A concolic unit testing engine for c. ACM
+  SIGSOFT Software Engineering Notes  30(5),  263--272 (2005)
+
 \bibitem{seo2014we}
 Seo, H., Kim, S.: How we get there: A context-guided search strategy in
   concolic testing. In: Proceedings of the 22nd ACM SIGSOFT International
@@ -91,6 +106,12 @@ Wang, X., Sun, J., Chen, Z., Zhang, P., Wang, J., Lin, Y.: Towards optimal
 Xie, T., Tillmann, N., De~Halleux, J., Schulte, W.: Fitness-guided path
   exploration in dynamic symbolic execution. In: 2009 IEEE/IFIP International
   Conference on Dependable Systems \& Networks. pp. 359--368. IEEE (2009)
+
+\bibitem{yan2006backtracking}
+Yan, J., Zhang, J.: Backtracking algorithms and search heuristics to generate
+  test suites for combinatorial testing. In: 30th Annual International Computer
+  Software and Applications Conference (COMPSAC'06). vol.~1, pp. 385--394. IEEE
+  (2006)
 
 \bibitem{yun2018qsym}
 Yun, I., Lee, S., Xu, M., Jang, Y., Kim, T.: {QSYM: A Practical Concolic
