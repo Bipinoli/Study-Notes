@@ -83,7 +83,7 @@ An alternative to random testing is symbolic execution. It is a white-box method
 Directed automated random testing \cite[DART]{godefroid2005dart}, more commonly known as concolic execution, is a technique that combines symbolic execution along with concreate inputs to mitigate the challenges faced by symbolic execution. When the branch is reached, a constraint solver can be used to find a concreate values that satisfies the condition. Then, the condition of the branch is negated and fed to the constraint solver to see if the other branch from the conditional is reachable. Whenever the constraint solver struggles to solve the constraints, a random concreate value can be used to simplify the process. This way concolic execution doesn't get stuck in the middle of execution. 
 
 Concolic execution has been widely used in practice to find many security bugs. SAGE \cite{godefroid2012sage} tool from microsoft is a prime example of it. SAGE is a whitebox fuzzing tool. It fuzzes the inputs, notably files,
-under the guidence of concolic execution which helps SAGE to perform fuzzing with good code coverage. Microsoft has been using SAGE since 2007 and it has found many bugs in big applications. Microsoft says \cite{godefroid2012sage} that SAGE helped them find one-third of all the security-related bugs in Windows 7 and they have been running SAGE 24/7 since 2008 on 100 plus machine/cores in the Microsoft security testing labs having processing more than billions constraints. Other open-source tools such as KLEE \cite{cadar2008klee} have also been widely used in industry.
+under the guidence of concolic execution which helps SAGE to perform fuzzing with good code coverage. Microsoft has been using SAGE since 2007 and it has found many bugs in big applications. Microsoft reported in the technical paper of SAGE \cite{godefroid2012sage} that SAGE helped them find one-third of all the security-related bugs in Windows 7 and they have been running SAGE 24/7 since 2008 on 100 plus machine/cores in the Microsoft security testing labs. It has processed over billions constraints. Other open-source tools such as KLEE \cite{cadar2008klee} have also been widely used in industry.
 
 A major issue while concolic execution is that it is not feasible to test all the execution paths of the program. The number of paths of execution grows exponentially with the number of branches in the program. This is callend a path-explosion problem. As, it is not possible to exhaustively test all the paths in the program, many approaches have been proposed to attack this problem in different ways, such as: by prioritizing the branches likely to lead to a bug, by decomposing the analysis into smaller components, etc. I have categorially presented various approaches.
 
@@ -151,33 +151,19 @@ Cha, Sooyoung and Lee et al. implemented this approach \cite{cha2018template} in
 
 % --------------------------
 
-\subsection{Optimizatin of a constraint solver}
-- 2018: QSYM
+\subsection{Optimization of symbolic execution}
+In a more practical note, path-explotion can also be attacked from a different angle by improving the performance of symbolic execution. In an attempt to make the concolic execution more practical in security testing, in the 27th USENIX Security Symposium, Insu Yun, et al. presented their design of a fast concolic execution engine called QSYM \cite{yun2018qsym}. The design supports hybrid fuzzing with a faster concolic execution engine. They improved the speed of the concolic engine by tightly integrating the sysmbolic emulation with the native execution using dynamic binary translation. This makes it possible to have more fine-grained implementation thus producuing faster instruction-level symbolic emulation. Furthermore, they relaxed the strict requirement of soundness from the concolic execution engine to make it more performant, yet taking the advantage of a faster fuzzer for validation. This provided them a lot of opportunities to optimize the performance. For example, optimistically solving constraints and pruning uninteresting basic blocks.
+
+QSYM \cite{yun2018qsym} works in two main steps. First, it performs fast concolic execution through efficient emulation. Symbol generation emulation was found to be a major bottleneck in the performance of the concolic execution. They solved that with instruction-level selective symbolic execution, advanced constraints optimization techniques, and tied symbolic and concolic executions. This way by reducing the emulation usuage and by optimizing the emulation speed the engine performs faster. 
+
+Second, QSYM \cite{yun2018qsym} works with a new heuristic for hybrid fuzzing. Insu Yun, et al. proposed a heuristic tailored for hybrid fuzzing to solve the solve unsatisfiable paths optimistically. This heuristic also prunes out resource-intensive back blocks.
+
+Due to these optimizations, QSYM makes reexecution based repetitive testing practical. As the concolic execution engine is more performant, the concreate execution of external environments is also feasible. Due to this, QSYM helps to deal with incomplete environment models with incorrect symbolic execution. Because of these optimizations and the possible of repetitive testing, QSYM is also free from napshots incurring significant performance degradation.
+
+Insu Yun, et al. compared QSYM \cite{yun2018qsym} to the existing state-of-the-art fuzzers and found that it outperforms them. They noted that QSYM found 14x more bugs than VUzzer in the LAVA-M dataset. QSYM also outperformed Driller in 104 binaries out of 126 they tested. They also noted that QSYM managed to find 13 previously unknown security bugs in eight real-world programs which included Dropbox Lepton, OpenJPEG and ffmpeg. Considering those programs having been thoroughly tested by other state-of-the-art fuzzers such as AFL, OSS-Fzz over time, it gives a good indication of the effectiveness of QSYM.
 
 
-
-
-
-
-% ------------------------------
-\section{papers}
-
-
-% ------------------------------
-\subsection{2018: Qsym : A Practical Concolic Execution Engine Tailored for Hybrid Fuzzing}
-\subsubsection{Gist:}
-we design a fast concolicexecution engine, called QSYM, to support hybrid fuzzing. The key idea is to tightly integrate the symbolic emulation with the native execution using dynamic binary translation, making it possible to implement more fine-grained,so faster, instruction-level symbolic emulation. Addition-ally, QSYM loosens the strict soundness requirements of conventional concolic executors for better performance, yet takes advantage of a faster fuzzer for validation, providing unprecedented opportunities for performance op-timizations, e.g., optimistically solving constraints and pruning uninteresting basic blocks
-
-\subsubsection{Methodlogy:}
-•Fast concolic execution through efficient emulation:
-We  improved  the  performance  of  concolic execution by optimizing emulation speed and reducing emulation usage.  Our analysis identified that symbol generation emulation was the major performance bottleneck of concolic execution such that were solved it with instruction-level selective symbolic execution, advanced constraints optimization techniques, and tied symbolic and concolic executions.
-
-•Efficient repetitive testing and concrete environ-ment. The efficiency of QSYM makes reexecution-based repetitive testing and the concrete execution of external environments practical. Because of this, QSYM is free from snapshots incurring significant performance degradation and incomplete environment models resulting in incorrect symbolic execution due to its non-reusable nature.
-
-•New heuristics for hybrid fuzzing. We proposed new heuristics tailored for hybrid fuzzing to solve unsatisfiable paths optimistically and to prune out compute-intensive  back  blocks,  thereby  making QSYM proceed.
-
-\subsubsection{Configurability part:}
-Our evaluation shows that QSYM does not just out-perform state-of-the-art fuzzers (i.e.,  found 14× more bugs than VUzzer in the LAVA-M dataset, and outperformed Driller in 104 binaries out of 126), but also found 13 previously unknown security bugs in eight real-world programs like Dropbox Lepton, ffmpeg, and OpenJPEG, which have already been intensively tested by the state-of-the-art fuzzers, AFL and OSS-Fuzz.
+% --------------------------
 
 
 

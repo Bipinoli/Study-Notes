@@ -92,4 +92,9 @@ Xie, T., Tillmann, N., De~Halleux, J., Schulte, W.: Fitness-guided path
   exploration in dynamic symbolic execution. In: 2009 IEEE/IFIP International
   Conference on Dependable Systems \& Networks. pp. 359--368. IEEE (2009)
 
+\bibitem{yun2018qsym}
+Yun, I., Lee, S., Xu, M., Jang, Y., Kim, T.: {QSYM: A Practical Concolic
+  Execution Engine Tailored for Hybrid Fuzzing}. In: Proceedings of the 27th
+  USENIX Security Symposium (Security). Baltimore, MD (Aug 2018)
+
 \end{thebibliography}
