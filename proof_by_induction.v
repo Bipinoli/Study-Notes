@@ -117,6 +117,17 @@ Qed.
 
 
 
+Theorem plus_rearrange: 
+ forall a b c d: nat, (a + b) + (c + d) = (b + a) + (c + d).
+Proof.
+ intros a b c d.
+ Set Printing Parentheses. (* show all parens *)
+ assert (H: a + b = b + a).
+ { rewrite plus_commutative_proven_lemma. reflexivity. }
+ rewrite H. reflexivity. 
+Qed.
+
+
 
 
 
