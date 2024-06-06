@@ -61,6 +61,46 @@ Example test_anonymous_func:
 Proof. reflexivity. Qed.
 
 
+Notation "[ x , .. , y ]" := (cons x .. (cons y nil) .. ).
+
+Fixpoint map {X Y: Type} (func: X -> Y) (lst: list): list :=
+ match lst with 
+ | nil => nil
+ | cons a lst' => cons (func a) (map func lst')
+ end.
+
+
+Compute map (fun x => x + 3) [1,2,3].
+
+Example test_map: map (fun x => x * 2) [1,2,3] = [2,4,6].
+Proof. reflexivity. Qed.
+
+
+Example test_map2: map isodd [1,2,3,4,5,6] = [true, false, true, false, true, false].
+Proof. reflexivity. Qed.
+
+
+Fixpoint fold {X: Type} (func: X -> X -> X) (lst: list) (default: X): X :=
+ match lst with
+ | nil => default
+ | cons a lst' => func a (fold func lst' default)
+ end.
+
+
+Example test_fold1: fold (fun x y => x + y) [1,2,3,4,5,6,7,8,9,10] 0 = 55.
+Proof. reflexivity. Qed.
+
+
+Definition xorb (b1 b2: bool): bool :=
+ match b1, b2 with
+ | true, true => false
+ | true, false => true
+ | false, true => true
+ | false, false => false
+end.
+
+Example test_fold2: fold xorb [true, true, false, true] false = true.
+Proof. reflexivity. Qed. 
 
 
 
