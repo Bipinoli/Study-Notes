@@ -97,6 +97,25 @@ Proof.
 Qed.
 
 
+Theorem mult_0_plus: 
+ forall a b: nat, (a + 0 + 0) * b = a * b.
+Proof.
+ intros a b.
+ assert (hypothesis: a + 0 + 0 = a).
+ {
+  (* prove the asserted hypothesis *)
+  Set Printing Parentheses. (* for better visibility *)
+  rewrite plus_commutative_proven_lemma.
+  simpl.
+  rewrite plus_commutative_proven_lemma.
+  simpl.
+  reflexivity.
+ }
+ rewrite hypothesis.
+ reflexivity.
+Qed.
+
+
 
 
 
