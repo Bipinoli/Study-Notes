@@ -2,8 +2,12 @@
 
 ## Combinational
 - [8-bit ripple carry adder](https://github.com/Bipinoli/VeriClash/tree/main/combinational/EightBitAdder)
+
 ## Sequential
 - [4-bit counter](https://github.com/Bipinoli/VeriClash/tree/main/sequential/FourBitCounter)
+
+## Memory
+- [Circular stack](https://github.com/Bipinoli/VeriClash/tree/main/memory/CircularStack)
 
 
 
