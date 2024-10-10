@@ -7,7 +7,7 @@
 - [4-bit counter](https://github.com/Bipinoli/VeriClash/tree/main/sequential/FourBitCounter)
 
 ## Memory
-- [Circular stack](https://github.com/Bipinoli/VeriClash/tree/main/memory/CircularStack)
+- [Ring buffer](https://github.com/Bipinoli/VeriClash/tree/main/memory/RingBuffer)
 
 
 
