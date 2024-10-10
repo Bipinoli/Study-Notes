@@ -136,7 +136,7 @@ module testbench
   assign result = (z > 5'd8) ? 4'd8 : (z[0+:4]);
 
   assign c$vecFlat_0 = {8'sd0,   8'sd0,   8'sd0,
-                        8'sd1,   8'sd2,   8'sd0,   8'sd0,   8'sd3,
+                        8'sd1,   8'sd2,   8'sd0,   8'sd0,   8'sd13,
                         8'sd4};
 
   // index begin

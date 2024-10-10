@@ -37,7 +37,8 @@ testbench = done
         rst = systemResetGen
         en = enableGen
         inputs = stimuliGenerator clk rst (Push 1 :> Push 2 :> Push 3 :> Pop :> Pop :> Push 4 :> Push 5 :> Pop :> Pop :> Nil)
-        expectedOutputs = outputVerifier' clk rst (0 :> 0 :> 0 :> 1 :> 2 :> 0 :> 0 :> 3 :> 4 :> Nil)
+        -- intentionally wrong '13' to trigger tail failure
+        expectedOutputs = outputVerifier' clk rst (0 :> 0 :> 0 :> 1 :> 2 :> 0 :> 0 :> 13 :> 4 :> Nil) 
         done = expectedOutputs (topEntity clk rst en inputs)
 
 

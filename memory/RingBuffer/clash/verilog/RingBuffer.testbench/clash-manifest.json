@@ -35,14 +35,14 @@
         },
         {
             "name": "testbench.v",
-            "sha256": "bf44f1b5f6be47a62bffa3dfb8bd8feac0799ca766ad65de97897ba5888765ce"
+            "sha256": "92c2441a81db6ae88f2bc20c8a5784ab37518cd7e04b1f0159338170c2805814"
         }
     ],
     "flags": [
         20,
         20
     ],
-    "hash": "231fa7cf346adb5ac7783962c65584b12b07764be73c8c0f4232a29699ad4865",
+    "hash": "e74ac7bbe0d4730394c41efe7081eb45ee9d3262677e3712d3e6d946f28d237d",
     "top_component": {
         "name": "testbench",
         "ports_flat": [
