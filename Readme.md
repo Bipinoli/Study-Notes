@@ -5,9 +5,11 @@
 
 ## Sequential
 - [4-bit counter](https://github.com/Bipinoli/VeriClash/tree/main/sequential/FourBitCounter)
+- [Bidirectional Shift Register](https://github.com/Bipinoli/VeriClash/tree/main/sequential/BidirectionalShiftRegister)
 
 ## Memory
 - [Ring buffer](https://github.com/Bipinoli/VeriClash/tree/main/memory/RingBuffer)
 
-
+## Communication Protocol
+- [UART - Universal asynchronous receiver-transmitter protocol](https://github.com/Bipinoli/VeriClash/tree/main/communication_protocol/UART)
 
