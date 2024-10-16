@@ -7,7 +7,7 @@
 ## Sequential
 - [4-bit counter](https://github.com/Bipinoli/VeriClash/tree/main/sequential/FourBitCounter)
 - [Bidirectional Shift Register](https://github.com/Bipinoli/VeriClash/tree/main/sequential/BidirectionalShiftRegister)
-- [Finite state machine to control a traffic light (moore machine)](https://github.com/Bipinoli/VeriClash/tree/main/sequential/TrafficLight)
+- [Traffic light controller - Moore machine](https://github.com/Bipinoli/VeriClash/tree/main/sequential/TrafficLight)
 
 ## Memory
 - [Ring buffer (FIFO)](https://github.com/Bipinoli/VeriClash/tree/main/memory/RingBuffer)
