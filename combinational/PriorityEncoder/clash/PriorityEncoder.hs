@@ -25,19 +25,19 @@ topEntity :: (Bit, Channels) -> Selected
 topEntity = priorityEncoder
 
 
-testbench :: Vec 2 Bool
-testbench =  done
-    where
-        inputs = (1 :: Bit, 0b01111111 :: Channels) :> (1, 0b00111111) :> Nil
-        expectedOutputs = (6 :: Selected) :> 5 :> Nil
-        outputs = map topEntity inputs
-        done = zipWith (==) outputs expectedOutputs
+-- testbench :: Vec 2 Bool
+-- testbench =  done
+--     where
+--         inputs = (1 :: Bit, 0b01111111 :: Channels) :> (1, 0b00111111) :> Nil
+--         expectedOutputs = (6 :: Selected) :> 5 :> Nil
+--         outputs = map topEntity inputs
+--         done = zipWith (==) outputs expectedOutputs
 
 
--- Mark testbench as top entity to generate Verilog testbench
-{-# ANN testbench
-  (Synthesize
-    { t_name   = "testbench"
-    , t_inputs = []
-    , t_output = PortName "done"
-    }) #-}
+-- -- Mark testbench as top entity to generate Verilog testbench
+-- {-# ANN testbench
+--   (Synthesize
+--     { t_name   = "testbench"
+--     , t_inputs = []
+--     , t_output = PortName "done"
+--     }) #-}
