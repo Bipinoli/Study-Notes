@@ -1,7 +1,7 @@
 module Execute where
 
 import Clash.Prelude
-import Instruction (WordSize, Instr(..), toSigned, toBitVector)
+import Instruction (WordSize, Instr(..), toSigned, signed2BV)
 
 type RegSize = Signed 32
 type Memory = Vec 1024 WordSize
@@ -23,7 +23,7 @@ execute (regs, memory, ip) instr = case instr of
         where
             newMemory = replace indx val memory
             indx = (regs !! r2) + resize imm
-            val = toBitVector $ regs !! r1
+            val = signed2BV $ regs !! r1
     ADD r1 r2 r3 -> (newRegs, memory, ip)
         where newRegs = replace r1 ((regs !! r2) + (regs !! r3)) regs
     SUB r1 r2 r3 -> (newRegs, memory, ip)

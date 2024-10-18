@@ -1,7 +1,8 @@
 module CpuTest where
 
 import Clash.Prelude 
-import Instruction (Instr(..), R, WordSize, Imm)
+import qualified Clash.Sized.Vector as V
+import Instruction (Instr(..), R, WordSize, Imm, encode)
 import Execute (Memory)
 
 -- ---------------------- EXAMPLE PROGRAM (GCD) -----------------------
@@ -84,3 +85,8 @@ gcdProgram = [
     ]
 
 
+encodedProgram :: Vec 11 WordSize
+encodedProgram = map encode $ V.unsafeFromList gcdProgram 
+
+memory :: Memory
+memory = encodedProgram ++ (repeat 0)
