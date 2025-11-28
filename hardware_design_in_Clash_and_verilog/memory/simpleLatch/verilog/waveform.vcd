@@ -1,0 +1,77 @@
+$date
+	Sat Nov 16 16:45:31 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbench $end
+$var wire 1 ! b $end
+$var reg 1 " a $end
+$var reg 1 # clock $end
+$var reg 1 $ enable $end
+$var reg 1 % reset $end
+$scope module latch $end
+$var wire 1 " a $end
+$var wire 1 # clock $end
+$var wire 1 $ enable $end
+$var wire 1 % reset $end
+$var reg 1 ! b $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1%
+0$
+1#
+0"
+0!
+$end
+#10
+0#
+#20
+1#
+1$
+0%
+#30
+0#
+#40
+1!
+1#
+1"
+#50
+0#
+#60
+0!
+1#
+0"
+#70
+0#
+#80
+1!
+1#
+1"
+#90
+0#
+#100
+0!
+1#
+0"
+#110
+0#
+#120
+1!
+1#
+1"
+#130
+0#
+#140
+0!
+1#
+0"
