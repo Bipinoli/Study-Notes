@@ -1,0 +1,113 @@
+#! /usr/local/Cellar/icarus-verilog/12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
+S_0x7fb5979041b0 .scope module, "adder_testbench" "adder_testbench" 2 1;
+ .timescale 0 0;
+P_0x600001548000 .param/l "N" 0 2 2, +C4<00000000000000000000000000000100>;
+v0x600003244e10_0 .net "carry_flag", 0 0, L_0x60000314c000;  1 drivers
+v0x600003244ea0_0 .var "num1", 3 0;
+v0x600003244f30_0 .var "num2", 3 0;
+v0x600003244fc0_0 .net "overflow_flag", 0 0, L_0x600002b5c380;  1 drivers
+v0x600003245050_0 .net "parity_flag", 0 0, L_0x6000031481e0;  1 drivers
+v0x6000032450e0_0 .net "sign_flag", 0 0, L_0x600003148140;  1 drivers
+v0x600003245170_0 .net "sum", 3 0, L_0x60000314c0a0;  1 drivers
+v0x600003245200_0 .net "zero_flag", 0 0, L_0x600003148280;  1 drivers
+S_0x7fb597904320 .scope module, "DUT" "fulladder" 2 8, 3 1 0, S_0x7fb5979041b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "num1";
+    .port_info 1 /INPUT 4 "num2";
+    .port_info 2 /OUTPUT 4 "sum";
+    .port_info 3 /OUTPUT 1 "carry_flag";
+    .port_info 4 /OUTPUT 1 "overflow_flag";
+    .port_info 5 /OUTPUT 1 "parity_flag";
+    .port_info 6 /OUTPUT 1 "zero_flag";
+    .port_info 7 /OUTPUT 1 "sign_flag";
+P_0x600001548080 .param/l "N" 0 3 1, +C4<00000000000000000000000000000100>;
+L_0x600002b5c000 .functor AND 1, L_0x600003148320, L_0x6000031483c0, C4<1>, C4<1>;
+L_0x600002b5c070 .functor NOT 1, L_0x600003148460, C4<0>, C4<0>, C4<0>;
+L_0x600002b5c0e0 .functor AND 1, L_0x600002b5c000, L_0x600002b5c070, C4<1>, C4<1>;
+L_0x600002b5c150 .functor NOT 1, L_0x600003148500, C4<0>, C4<0>, C4<0>;
+L_0x600002b5c230 .functor NOT 1, L_0x6000031485a0, C4<0>, C4<0>, C4<0>;
+L_0x600002b5c2a0 .functor AND 1, L_0x600002b5c150, L_0x600002b5c230, C4<1>, C4<1>;
+L_0x600002b5c310 .functor AND 1, L_0x600002b5c2a0, L_0x600003148640, C4<1>, C4<1>;
+L_0x600002b5c380 .functor OR 1, L_0x600002b5c0e0, L_0x600002b5c310, C4<0>, C4<0>;
+L_0x7fb597863050 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x600003248000_0 .net *"_ivl_10", 0 0, L_0x7fb597863050;  1 drivers
+v0x600003244000_0 .net *"_ivl_11", 4 0, L_0x6000031480a0;  1 drivers
+v0x600003244090_0 .net *"_ivl_20", 0 0, L_0x600003148320;  1 drivers
+v0x600003244120_0 .net *"_ivl_22", 0 0, L_0x6000031483c0;  1 drivers
+v0x6000032441b0_0 .net *"_ivl_23", 0 0, L_0x600002b5c000;  1 drivers
+v0x600003244240_0 .net *"_ivl_26", 0 0, L_0x600003148460;  1 drivers
+v0x6000032442d0_0 .net *"_ivl_27", 0 0, L_0x600002b5c070;  1 drivers
+v0x600003244360_0 .net *"_ivl_29", 0 0, L_0x600002b5c0e0;  1 drivers
+v0x6000032443f0_0 .net *"_ivl_3", 4 0, L_0x60000314c140;  1 drivers
+v0x600003244480_0 .net *"_ivl_32", 0 0, L_0x600003148500;  1 drivers
+v0x600003244510_0 .net *"_ivl_33", 0 0, L_0x600002b5c150;  1 drivers
+v0x6000032445a0_0 .net *"_ivl_36", 0 0, L_0x6000031485a0;  1 drivers
+v0x600003244630_0 .net *"_ivl_37", 0 0, L_0x600002b5c230;  1 drivers
+v0x6000032446c0_0 .net *"_ivl_39", 0 0, L_0x600002b5c2a0;  1 drivers
+v0x600003244750_0 .net *"_ivl_42", 0 0, L_0x600003148640;  1 drivers
+v0x6000032447e0_0 .net *"_ivl_43", 0 0, L_0x600002b5c310;  1 drivers
+L_0x7fb597863008 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x600003244870_0 .net *"_ivl_6", 0 0, L_0x7fb597863008;  1 drivers
+v0x600003244900_0 .net *"_ivl_7", 4 0, L_0x600003148000;  1 drivers
+v0x600003244990_0 .net "carry_flag", 0 0, L_0x60000314c000;  alias, 1 drivers
+v0x600003244a20_0 .net "num1", 3 0, v0x600003244ea0_0;  1 drivers
+v0x600003244ab0_0 .net "num2", 3 0, v0x600003244f30_0;  1 drivers
+v0x600003244b40_0 .net "overflow_flag", 0 0, L_0x600002b5c380;  alias, 1 drivers
+v0x600003244bd0_0 .net "parity_flag", 0 0, L_0x6000031481e0;  alias, 1 drivers
+v0x600003244c60_0 .net "sign_flag", 0 0, L_0x600003148140;  alias, 1 drivers
+v0x600003244cf0_0 .net "sum", 3 0, L_0x60000314c0a0;  alias, 1 drivers
+v0x600003244d80_0 .net "zero_flag", 0 0, L_0x600003148280;  alias, 1 drivers
+L_0x60000314c000 .part L_0x6000031480a0, 4, 1;
+L_0x60000314c0a0 .part L_0x6000031480a0, 0, 4;
+L_0x60000314c140 .concat [ 4 1 0 0], v0x600003244ea0_0, L_0x7fb597863008;
+L_0x600003148000 .concat [ 4 1 0 0], v0x600003244f30_0, L_0x7fb597863050;
+L_0x6000031480a0 .arith/sum 5, L_0x60000314c140, L_0x600003148000;
+L_0x600003148140 .part L_0x60000314c0a0, 3, 1;
+L_0x6000031481e0 .reduce/xnor L_0x60000314c0a0;
+L_0x600003148280 .reduce/nor L_0x60000314c0a0;
+L_0x600003148320 .part v0x600003244ea0_0, 3, 1;
+L_0x6000031483c0 .part v0x600003244f30_0, 3, 1;
+L_0x600003148460 .part L_0x60000314c0a0, 3, 1;
+L_0x600003148500 .part v0x600003244ea0_0, 3, 1;
+L_0x6000031485a0 .part v0x600003244f30_0, 3, 1;
+L_0x600003148640 .part L_0x60000314c0a0, 3, 1;
+    .scope S_0x7fb5979041b0;
+T_0 ;
+    %vpi_call 2 21 "$monitor", "time: %d, num1: %b, num2: %b, sum: %b, carry: %b, zero: %b, overflow: %b, parity: %b, sign: %b", $time, v0x600003244ea0_0, v0x600003244f30_0, v0x600003245170_0, v0x600003244e10_0, v0x600003245200_0, v0x600003244fc0_0, v0x600003245050_0, v0x6000032450e0_0 {0 0 0};
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v0x600003244ea0_0, 0, 4;
+    %pushi/vec4 10, 0, 4;
+    %store/vec4 v0x600003244f30_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 15, 0, 4;
+    %store/vec4 v0x600003244ea0_0, 0, 4;
+    %pushi/vec4 15, 0, 4;
+    %store/vec4 v0x600003244f30_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v0x600003244ea0_0, 0, 4;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v0x600003244f30_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 14, 0, 4;
+    %store/vec4 v0x600003244f30_0, 0, 4;
+    %pushi/vec4 2, 0, 4;
+    %store/vec4 v0x600003244ea0_0, 0, 4;
+    %delay 10, 0;
+    %vpi_call 2 47 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "test.v";
+    "fulladder_behavioral.v";
