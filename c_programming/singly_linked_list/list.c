@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct Node {
   void *data;  
@@ -33,20 +34,24 @@ bool empty(struct List *self) {
 
 void push_front(struct List *self, void *item) {
   struct Node *new_node = malloc(sizeof(struct Node));
-  new_node->data = item;
+  void *data = malloc(self->unit_size);
+  memcpy(data, item, self->unit_size);
+  new_node->data = data;
   new_node->next = self->head;
   self->head = new_node;
 }
 
 
 void push_back(struct List *self, void *item) {
+  void *data = malloc(self->unit_size);
+  memcpy(data, item, self->unit_size);
   if (self->head == NULL) {
     self->head = malloc(sizeof(struct Node)); 
     if (self->head == NULL) {
       perror("malloc failed");
       exit(1);
     }
-    self->head->data = item;
+    self->head->data = data;
     self->head->next = NULL;
     return;
   }
@@ -60,7 +65,7 @@ void push_back(struct List *self, void *item) {
     last_node = last_node->next;
   }
   last_node->next = new_node;
-  new_node->data = item;
+  new_node->data = data;
   new_node->next = NULL;
 }
 
@@ -185,9 +190,7 @@ int main() {
   init(&list, sizeof(int));
 
   for (int i=1; i<5; i++) {
-    int *dt = malloc(sizeof(int)); 
-    *dt = i;
-    list.push_back(&list, (void *)dt);
+    list.push_back(&list, (void *)(&i));
     printf("%d inserted\n", i);
     display(&list);
   }
@@ -198,9 +201,7 @@ int main() {
 
   for (int i=10; i<15; i++) {
     printf("Pusing %d front\n", i);
-    int *dt = malloc(sizeof(int));
-    *dt = i;
-    list.push_front(&list, (void *)dt);
+    list.push_front(&list, (void *)(&i));
     display(&list);
   }
 
