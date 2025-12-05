@@ -16,10 +16,7 @@ void init_list_node(struct list_node *self) {
 }
 
 void push_back_list_node(struct list_node *head, struct list_node *new_node) {
-  struct list_node *cur = head;
-  while (cur->next != head) {
-    cur = cur->next;
-  }
+  struct list_node *cur = head->prev;
   new_node->next = cur->next; 
   cur->next->prev = new_node;
   cur->next = new_node;
